@@ -21,7 +21,7 @@ public class MyActivity extends Activity implements SensorEventListener {
     private Sensor accelerometer;
 
     private float deltaXMax = 0;
-    private float deltYMax = 0;
+    private float deltaYMax = 0;
     private float deltaZmax = 0;
 
     private float deltaX = 0;
@@ -123,6 +123,13 @@ public class MyActivity extends Activity implements SensorEventListener {
 
     public void displayMaxValues()
     {
+        deltaXMax = accelerometer.getMaximumRange() - deltaX;
+        deltaYMax = accelerometer.getMaximumRange() - deltaY;
+        deltaZmax = accelerometer.getMaximumRange() - deltaZ;
+
+        maxX.setText(Float.toString(deltaXMax));
+        maxY.setText(Float.toString(deltaYMax));
+        maxZ.setText(Float.toString(deltaZmax));
 
     }
 
